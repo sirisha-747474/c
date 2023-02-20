@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+int main() {
+    int n, i;
+    float num, highest, second_highest;
+
+    printf("Enter the total number of elements: ");
+    scanf("%d", &n);
+
+    /* Input first element */
+    printf("Enter number 1: ");
+    scanf("%f", &highest);
+
+    /* Input second element */
+    printf("Enter number 2: ");
+    scanf("%f", &num);
+
+    /* Set highest and second highest */
+    if (num > highest) {
+        second_highest = highest;
+        highest = num;
+    } else {
+        second_highest = num;
+    }
+
+    /* Input remaining n-2 elements */
+    for (i = 3; i <= n; i++) {
+        printf("Enter number %d: ", i);
+        scanf("%f", &num);
+
+        /* If current element is greater than highest */
+        if (num > highest) {
+            second_highest = highest;
+            highest = num;
+        } else if (num > second_highest) {
+            second_highest = num;
+        }
+    }
+
+    printf("Second highest number = %.2f", second_highest);
+    return 0;
+}
